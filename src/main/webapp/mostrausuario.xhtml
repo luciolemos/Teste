@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Usuário cadastrado</title>
+                
+                <style type="text/css">
+                    .ui-layout-north {
+                        z-index:20 !important;
+                        overflow:visible !important;;
+                    }
+
+                    .ui-layout-north ui-layout-west .ui-layout-unit-content {
+                        overflow:visible !important;
+                    }
+
+                    body {
+                        background-color: #FFFFFF;
+                    }
+                    .ui-widget, .ui-widget .ui-widget {
+                        font-size: 12px !important;
+                    }
+                    
+                    #dados{
+                        margin-left: 10px;
+                    }
+
+
+                </style>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north">
+                    <div style="float:left; padding: 0.6em"> 
+                        <p:graphicImage url="/img/img4.jpg" width="80px" height="80px" />
+                    </div>
+
+                    <div style="float:left; padding: 0.6em; margin-left: 4em"> 
+                        <h1>Fiscalização Administrativa</h1>
+                        <h2>Gestão de patrimônio imobiliário e meio ambiente</h2>
+                    </div>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="38" closable="true" collapsible="true">
+                    <p:toolbar style="margin:0px">
+                        <f:facet name="right">
+                            <p:outputLabel ><address>Written by 2º Ten QAO<a href="mailto:luciolemos.j5@gmail.com"> <b>L</b>úcio Flávio <b>Lemos</b></a></address></p:outputLabel>
+                        </f:facet>
+                    </p:toolbar>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <!--                    <p:menu>
+                                            <p:submenu label="Resources">
+                                                <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                                                <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                                                <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                                                <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+                    
+                                            </p:submenu>
+                    
+                                        </p:menu>-->
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <!--                    <p:panel header="Cadastro"></p:panel> -->
+                    <p:toolbar style="margin:0px">
+                        <f:facet name="left">
+                            <h:outputText value="Confira seus dados" />        
+                        </f:facet> 
+                    </p:toolbar>
+
+                    
+                    
+                    <p:dataTable emptyMessage="Nenhum registro foi localizado">   
+                        <p:column headerText="Código">
+                            <h:outputText value="#{usuarioBean.posto}" />
+                        </p:column>
+                    <p:column headerText="Nome"></p:column>
+                    <p:column headerText="Descrição"></p:column>
+                    <p:column headerText="Obs"></p:column>
+
+                </p:dataTable>
+                    
+                    
+                    <div id="dados">
+                    <br />
+                    <h:outputLabel value="Posto/Grad: " for="posto_grad" />
+                    
+                    <br />
+                    
+                    <h:outputLabel value="Nome: " for="nome" />
+                    <h:outputText value="#{usuarioBean.nome}" />
+                    <br />
+                    
+                    <h:outputLabel value="CPF: " for="cpf" />
+                    <h:outputText value="#{usuarioBean.cpf}" />
+                   <br />
+                   
+                    <h:outputLabel value="Email: " for="email" />	
+                    <h:outputLink value="mailto:#{usuarioBean.email}">
+                        <h:outputText value="#{usuarioBean.email}" />
+                    </h:outputLink>
+                    <br />
+                    
+                    <h:outputLabel value="Senha: " for="senha" />
+                    <h:outputText value="#{usuarioBean.senha}" />
+                    <br />
+                   
+                    <h:outputLabel value="Data de nascimento: " for="nascimento" />
+                    <h:outputText value="#{usuarioBean.nascimento}" />
+                    <br />
+
+                    
+                    <h:form>
+                        <h:commandLink action="index" value="home" />
+                    </h:form>
+                    </div>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

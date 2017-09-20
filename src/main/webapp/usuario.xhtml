@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Cadastro de usuário</title>
+                 <style type="text/css">
+                .ui-layout-north {
+                    z-index:20 !important;
+                    overflow:visible !important;;
+                }
+
+                .ui-layout-north ui-layout-west .ui-layout-unit-content {
+                    overflow:visible !important;
+                }
+
+                body {
+                    background-color: #FFFFFF;
+                }
+                .ui-widget, .ui-widget .ui-widget {
+                    font-size: 12px !important;
+                }
+                             
+                           
+            </style>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north">
+                     <div style="float:left; padding: 0.6em"> 
+                    <p:graphicImage url="/img/img4.jpg" width="80px" height="80px" />
+                </div>
+
+               <div style="float:left; padding: 0.6em; margin-left: 4em"> 
+                    <h1>Fiscalização Administrativa</h1>
+                    <h2>Gestão de patrimônio imobiliário e meio ambiente</h2>
+                </div>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="38" closable="true" collapsible="true">
+                     <p:toolbar style="margin:0px">
+                    <f:facet name="right">
+                        <p:outputLabel ><address>Written by 2º Ten QAO<a href="mailto:luciolemos.j5@gmail.com"> <b>L</b>úcio Flávio <b>Lemos</b></a></address></p:outputLabel>
+                    </f:facet>
+                </p:toolbar>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+<!--                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>-->
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+<!--                    <p:panel header="Cadastro"></p:panel> -->
+                    <p:toolbar style="margin:0px">
+                    <f:facet name="left">
+                        <h:outputText value="Cadastro" />        
+                    </f:facet> 
+                </p:toolbar>
+                    <h:form acceptcharset="UTF-8">
+                     <h:messages/>
+                        <!--                        <p:fieldset legend="Dados pessoais" toggleable="true" toggleSpeed="500">-->
+                        <h:panelGrid columns="2" cellpadding="5" >
+
+                            <p:outputLabel value="Posto/Grad" for="posto" />
+                            <p:selectOneMenu id="posto" value="#{usuarioBean.posto}">
+                                <f:selectItem itemLabel="Selecione posto ou graduação" itemValue="" />
+                                <f:selectItems value="#{usuarioBean.postos}" />
+                            </p:selectOneMenu>
+
+                            <h:outputLabel value="Nome:" for="nome" />
+                            <p:inputText id="nome" label="nome" size="30" value="#{usuarioBean.nome}" required="true" requiredMessage="Informe seu Nome"/>
+
+                            <h:outputLabel value="CPF:" for="cpf" />
+                            <p:inputMask id="CPF" value="#{usuarioBean.cpf}" required="true" mask="999.999.999-99" requiredMessage="Digite seu CPF"/>
+
+
+                            <h:outputLabel value="E-mail:" for="email" />
+                            <p:inputText id="email" label="e_mail" size="30" value="#{usuarioBean.email}" required="true" requiredMessage="Informe seu email"/>
+
+
+                            <h:outputLabel value="Senha:" for="senha" />
+                            <p:password id="senha" label="Senha" size="30" value="#{usuarioBean.senha}" required="true" requiredMessage="Informe sua senha" feedback="true"/>
+
+                            <h:outputLabel value="Confirme senha:" for="confirmarsenha" />
+                            <p:password id="confirmarsenha" label="confirma_senha" size="30" value="#{usuarioBean.confirmaSenha}" required="true" requiredMessage="Confirme sua senha" feedback="true" />
+
+                            <p:outputLabel for="nascimento" value="Data de Nascimento" />
+                            <p:calendar id="nascimento" value="#{usuarioBean.nascimento}" />
+
+                            
+                            <h:outputText />
+                        
+                                <h:commandButton action="#{usuarioBean.salvar}" value="Salvar" />
+                            
+                        </h:panelGrid>
+                       
+                        <!--                        </p:fieldset>-->
+
+                   
+                    </h:form>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+
